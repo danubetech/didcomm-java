@@ -1,5 +1,12 @@
 package com.danubetech.didcomm;
 
+import com.danubetech.keyformats.crypto.provider.Ed25519Provider;
+import com.danubetech.keyformats.crypto.provider.RandomProvider;
+import com.danubetech.keyformats.crypto.provider.SHA256Provider;
+import com.danubetech.keyformats.crypto.provider.impl.JavaRandomProvider;
+import com.danubetech.keyformats.crypto.provider.impl.JavaSHA256Provider;
+import com.danubetech.keyformats.crypto.provider.impl.TinkEd25519Provider;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -7,6 +14,14 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class DIDCommMessageTest {
+
+	@BeforeEach
+	public void before() {
+
+		RandomProvider.set(new JavaRandomProvider());
+		SHA256Provider.set(new JavaSHA256Provider());
+		Ed25519Provider.set(new TinkEd25519Provider());
+	}
 
 	@Test
 	public void testDIDDocument() throws Exception {
