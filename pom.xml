@@ -128,6 +128,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.danubetech</groupId>
+			<artifactId>key-formats-java</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.nimbusds</groupId>
 			<artifactId>nimbus-jose-jwt</artifactId>
 			<version>9.9</version>
@@ -138,9 +143,10 @@
 			<version>1.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.danubetech</groupId>
-			<artifactId>key-formats-java</artifactId>
-			<version>1.2.0</version>
+			<groupId>com.google.crypto.tink</groupId>
+			<artifactId>tink</artifactId>
+			<version>1.5.0</version>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
