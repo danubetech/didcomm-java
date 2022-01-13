@@ -28,7 +28,7 @@ jobs:
       - name: Prepare multi server settings file
         uses: danubetech/github-action-prepare-maven-settings-xml@master
         with:
-          server_ids: danubetech-maven-internal-snapshots,danubetech-maven-internal
+          server_ids: danubetech-maven-snapshots
       - name: Run maven deploy action
         uses: danubetech/github-action-maven-deploy@master
         with:
