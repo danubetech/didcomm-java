@@ -27,16 +27,16 @@ jobs:
           secrets: |
             ci/data/gh-workflows/maven-danubetech-nexus username | MAVEN_USERNAME ;
             ci/data/gh-workflows/maven-danubetech-nexus password | MAVEN_PASSWORD ;
-            ci/data/gh-workflows/maven-release-deploy-keys danubetech-common-java-private-key-base64 | SSH_PRIVATE_KEY
+            ci/data/gh-workflows/maven-release-workflow token | TOKEN
 
       - name: Release to Danubetech Nexus
         uses: BernhardFuchs/docker-maven-release@use-dynamic-input
         with:
           release-branch-name: main
-          maven-repo-server-id: danubetech-maven-internal-releases
+          maven-repo-server-id: danubetech-maven-releases
           maven-repo-server-username: ${{ env.MAVEN_USERNAME }}
           maven-repo-server-password: ${{ env.MAVEN_PASSWORD }}
-          ssh-private-key: ${{ env.SSH_PRIVATE_KEY }}
+          access-token: ${{ env.TOKEN }}
           version-core: ${{ github.event.inputs.version-core }}
           maven-development-version-format-minor: ${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}-SNAPSHOT
           maven-development-version-format-major: ${parsedVersion.nextMajorVersion}.1-SNAPSHOT
