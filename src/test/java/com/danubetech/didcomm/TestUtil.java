@@ -134,7 +134,7 @@ class TestUtil {
 		StringBuffer buffer = new StringBuffer();
 
 		String line;
-		while ((line = reader.readLine()) != null) buffer.append(line + "\n");
+		while ((line = reader.readLine()) != null) buffer.append(line).append("\n");
 
 		return buffer.toString();
 	}

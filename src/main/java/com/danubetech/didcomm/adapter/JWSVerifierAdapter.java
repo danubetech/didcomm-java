@@ -13,7 +13,7 @@ import java.util.Collections;
 
 public class JWSVerifierAdapter extends BaseJWSProvider implements JWSVerifier {
 
-	private ByteVerifier verifier;
+	private final ByteVerifier verifier;
 
 	public JWSVerifierAdapter(ByteVerifier verifier, JWSAlgorithm algorithm) {
 
